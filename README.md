@@ -6,8 +6,8 @@
 Make sure you have [Node.js](http://nodejs.org/) and the [Heroku CLI](https://cli.heroku.com/) installed.
 
 ```sh
-$ git clone git@github.com:jomaoppa/node-js-template.git # or clone your own fork
-$ cd node-js-template
+$ git clone git@github.com:quuu/Duotris.git # or clone your own fork
+$ cd Duotris
 $ npm install
 $ npm start
 ```
