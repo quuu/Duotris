@@ -1,5 +1,5 @@
 {
-  "name": "Node.js template",
-  "description": "A barebones Node.js app using Express 4",
-  "keywords": ["node", "express", "heroku"]
+  "name": "Duotris",
+  "description": "2 player tetris on one game board",
+  "keywords": ["node", "express", "heroku", "socket.io"]
 }

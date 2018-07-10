@@ -47,8 +47,9 @@ function get(id)        { return document.getElementById(id);  }
         score,         // the current score
         vscore,        // the currently displayed score (it catches up to score in small chunks - like a spinning slot machine)
         rows,          // number of completed rows in the current game
-        step;          // how long before current piece drops by 1 row
+        step,          // how long before current piece drops by 1 row
 
+        heights = Array(10).fill(0);
     //-------------------------------------------------------------------------
     // tetris pieces
     //
@@ -105,6 +106,7 @@ function get(id)        { return document.getElementById(id);  }
     function unoccupied(type, x, y, dir) {
       return !occupied(type, x, y, dir);
     }
+
 
     //-----------------------------------------
     // start with 4 instances of each piece and
@@ -200,7 +202,7 @@ function get(id)        { return document.getElementById(id);  }
     function setRows(n)             { rows = n; step = Math.max(speed.min, speed.start - (speed.decrement*rows)); invalidateRows(); }
     function addRows(n)             { setRows(rows + n); }
     function getBlock(x,y)          { return (blocks && blocks[x] ? blocks[x][y] : null); }
-    function setBlock(x,y,type)     { blocks[x] = blocks[x] || []; blocks[x][y] = type; invalidate(); }
+    function setBlock(x,y,type)     { console.log(type); blocks[x] = blocks[x] || []; blocks[x][y] = type;  invalidate(); }
     function clearBlocks()          { blocks = []; invalidate(); }
     function clearActions()         { actions = []; }
     function setCurrentPiece(piece) { current = piece || randomPiece(); invalidate();     }
@@ -317,8 +319,11 @@ function get(id)        { return document.getElementById(id);  }
     function removeLine(n) {
       var x, y;
       for(y = n ; y >= 0 ; --y) {
-        for(x = 0 ; x < nx ; ++x)
+        for(x = 0 ; x < nx ; ++x){
           setBlock(x, y, (y == 0) ? null : getBlock(x, y-1));
+
+          heights[x]--;
+        }
       }
     }
 
