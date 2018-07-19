@@ -66,6 +66,8 @@ function get(id)        { return document.getElementById(id);  }
     //
     //-------------------------------------------------------------------------
 
+
+
     var i = { size: 4, blocks: [0x0F00, 0x2222, 0x00F0, 0x4444], color: 'cyan'   };
     var j = { size: 3, blocks: [0x44C0, 0x8E00, 0x6440, 0x0E20], color: 'blue'   };
     var l = { size: 3, blocks: [0x4460, 0x0E80, 0xC440, 0x2E00], color: 'orange' };
@@ -411,5 +413,4 @@ function get(id)        { return document.getElementById(id);  }
     //-------------------------------------------------------------------------
 
     run();
-
 
